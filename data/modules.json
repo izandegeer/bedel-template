@@ -1,0 +1,15 @@
+{
+  "_nota": "Horas oficiales del módulo en el curso (sesiones de 45 min). Fuente: cuadro horario 2º DAW. El límite de faltas es el 15 % de estas horas.",
+  "limitPercent": 15,
+  "modules": {
+    "DWC":  { "hours": 200, "weekly": 6, "name": "Desarrollo web en entorno cliente" },
+    "DWS":  { "hours": 200, "weekly": 6, "name": "Desarrollo web en entorno servidor" },
+    "DAW":  { "hours": 100, "weekly": 3, "name": "Despliegue de aplicaciones web" },
+    "DIW":  { "hours": 133, "weekly": 4, "name": "Diseño de interfaces web" },
+    "IPE": { "hours": 100, "weekly": 3, "name": "Itinerario personal para la empleabilidad II" },
+    "PRO": { "hours": 99,  "weekly": 3, "name": "Proyecto intermodular de desarrollo de aplicaciones web" },
+    "ING":  { "hours": 100, "weekly": 3, "name": "Módulo optativo: Inglés oral" },
+    "DIG":  { "hours": 34,  "weekly": 1, "name": "Digitalización aplicada al sistema productivo" },
+    "SOS": { "hours": 34,  "weekly": 1, "name": "Sostenibilidad aplicada al sistema productivo" }
+  }
+}

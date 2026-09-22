@@ -1,0 +1,8 @@
+{
+  "events": [],
+  "deadlines": [
+    { "id": "man-001", "code": "DIW", "title": "Mockup en Figma", "due": "2026-09-25T23:59", "url": null }
+  ],
+  "notes": [],
+  "done": ["aules-501"]
+}

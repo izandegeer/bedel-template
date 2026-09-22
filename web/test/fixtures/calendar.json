@@ -1,0 +1,18 @@
+{
+  "_nota": "Calendario escolar 2026/27 IES Mutxamel (ciclos GS). Fuente: docs/horario/calendario-escolar-26-27-mutxamel.pdf (Resolución 15/06/2026 + festivos locales 7/8/2026). Fechas inclusive.",
+  "lective": { "from": "2026-09-09", "to": "2027-06-18" },
+  "holidays": [
+    { "from": "2026-09-09", "to": "2026-09-09", "text": "Festivo local" },
+    { "from": "2026-09-10", "to": "2026-09-11", "text": "Festivo Consejo Escolar" },
+    { "from": "2026-10-09", "to": "2026-10-09", "text": "9 d'Octubre" },
+    { "from": "2026-10-12", "to": "2026-10-12", "text": "Fiesta Nacional" },
+    { "from": "2026-12-08", "to": "2026-12-08", "text": "Inmaculada" },
+    { "from": "2026-12-21", "to": "2026-12-21", "text": "Festivo Consejo Escolar" },
+    { "from": "2026-12-22", "to": "2027-01-06", "text": "Vacaciones de Navidad" },
+    { "from": "2027-02-26", "to": "2027-02-26", "text": "Día no lectivo municipal (pendiente de resolución)" },
+    { "from": "2027-03-01", "to": "2027-03-01", "text": "Festivo local" },
+    { "from": "2027-03-19", "to": "2027-03-19", "text": "San José" },
+    { "from": "2027-03-25", "to": "2027-04-05", "text": "Vacaciones de Pascua" }
+  ],
+  "pendingLective": [ { "date": "2027-04-05", "text": "Pendiente de declararse lectivo" } ]
+}

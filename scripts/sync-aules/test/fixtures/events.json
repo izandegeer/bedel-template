@@ -1,0 +1,19 @@
+{
+  "events": [
+    {
+      "id": 7001, "name": "Examen T1", "description": "",
+      "timesort": 1761260400, "timestart": 1761260400,
+      "modulename": null, "instance": 0, "eventtype": "course",
+      "course": { "id": 8812 },
+      "url": "https://aules.edu.gva.es/fp/calendar/view.php?view=day&time=1761260400"
+    },
+    {
+      "id": 7002, "name": "Práctica 1: Rutas en Laravel is due", "description": "",
+      "timesort": 1760565540, "timestart": 1760565540,
+      "modulename": "assign", "instance": 501, "eventtype": "due",
+      "course": { "id": 8812 },
+      "url": "https://aules.edu.gva.es/fp/mod/assign/view.php?id=90001"
+    }
+  ],
+  "firstid": 7002, "lastid": 7001
+}

@@ -1,0 +1,24 @@
+[
+  {
+    "id": 1, "name": "Tema 1",
+    "modules": [
+      {
+        "id": 90001, "name": "Práctica 1: Rutas en Laravel", "modname": "assign",
+        "url": "https://aules.edu.gva.es/fp/mod/assign/view.php?id=90001"
+      },
+      {
+        "id": 90010, "name": "Apuntes tema 1", "modname": "resource",
+        "url": "https://aules.edu.gva.es/fp/mod/resource/view.php?id=90010",
+        "contents": [
+          { "type": "file", "filename": "tema1.pdf", "fileurl": "https://aules.edu.gva.es/fp/webservice/pluginfile.php/1/mod_resource/content/1/tema1.pdf?forcedownload=1", "timemodified": 1758000000 }
+        ]
+      },
+      {
+        "id": 90011, "name": "Enlace docs Laravel", "modname": "url",
+        "url": "https://aules.edu.gva.es/fp/mod/url/view.php?id=90011",
+        "contents": [ { "type": "url", "filename": "Laravel", "fileurl": "https://laravel.com/docs" } ]
+      },
+      { "id": 90012, "name": "Etiqueta", "modname": "label" }
+    ]
+  }
+]

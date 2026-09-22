@@ -1,0 +1,14 @@
+.DS_Store
+node_modules/
+.env
+*.xcuserstate
+xcuserdata/
+DerivedData/
+mac/build/
+mac/*.xcodeproj/
+web/node_modules/
+web/dist/
+web/public/data/
+.wrangler/
+logs/
+bedel.config.json

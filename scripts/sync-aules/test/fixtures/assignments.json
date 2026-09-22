@@ -1,0 +1,40 @@
+{
+  "courses": [
+    {
+      "id": 8812,
+      "fullname": "Desarrollo Web en Entorno Servidor 2DAW",
+      "shortname": "DWES-2DAW-26",
+      "assignments": [
+        {
+          "id": 501,
+          "cmid": 90001,
+          "course": 8812,
+          "name": "Práctica 1: Rutas en Laravel",
+          "duedate": 1760565540,
+          "allowsubmissionsfromdate": 0,
+          "cutoffdate": 0,
+          "intro": "<p>Enunciado…</p>"
+        },
+        {
+          "id": 502,
+          "cmid": 90002,
+          "course": 8812,
+          "name": "Cuestionario sin fecha",
+          "duedate": 0,
+          "allowsubmissionsfromdate": 0,
+          "cutoffdate": 0,
+          "intro": ""
+        }
+      ]
+    },
+    {
+      "id": 9999,
+      "fullname": "Curso sin mapear",
+      "shortname": "X",
+      "assignments": [
+        { "id": 900, "cmid": 90009, "course": 9999, "name": "Algo", "duedate": 1760565540, "intro": "" }
+      ]
+    }
+  ],
+  "warnings": []
+}

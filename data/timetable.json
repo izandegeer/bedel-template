@@ -1,0 +1,724 @@
+{
+  "room": "Aula 03",
+  "classes": [
+    {
+      "day": 0,
+      "start": "16:30",
+      "end": "18:00",
+      "code": "DIW",
+      "teacher": "VPT"
+    },
+    {
+      "day": 0,
+      "start": "18:00",
+      "end": "18:45",
+      "code": "DWC",
+      "teacher": "TSI"
+    },
+    {
+      "day": 0,
+      "start": "19:05",
+      "end": "19:50",
+      "code": "DWC",
+      "teacher": "TSI"
+    },
+    {
+      "day": 0,
+      "start": "19:50",
+      "end": "21:20",
+      "code": "PRO",
+      "teacher": "RRL"
+    },
+    {
+      "day": 1,
+      "start": "16:30",
+      "end": "18:00",
+      "code": "IPE",
+      "teacher": "MPM"
+    },
+    {
+      "day": 1,
+      "start": "18:00",
+      "end": "18:45",
+      "code": "DAW",
+      "teacher": "AAG"
+    },
+    {
+      "day": 1,
+      "start": "19:05",
+      "end": "19:50",
+      "code": "DAW",
+      "teacher": "AAG"
+    },
+    {
+      "day": 1,
+      "start": "19:50",
+      "end": "20:35",
+      "code": "SOS",
+      "teacher": "LVLL"
+    },
+    {
+      "day": 1,
+      "start": "20:35",
+      "end": "21:20",
+      "code": "ING",
+      "teacher": "AMC"
+    },
+    {
+      "day": 2,
+      "start": "16:30",
+      "end": "17:15",
+      "code": "PRO",
+      "teacher": "RRL"
+    },
+    {
+      "day": 2,
+      "start": "17:15",
+      "end": "18:00",
+      "code": "DIG",
+      "teacher": "VFA"
+    },
+    {
+      "day": 2,
+      "start": "18:00",
+      "end": "18:45",
+      "code": "DWS",
+      "teacher": "AAG"
+    },
+    {
+      "day": 2,
+      "start": "19:05",
+      "end": "19:50",
+      "code": "DWS",
+      "teacher": "AAG"
+    },
+    {
+      "day": 2,
+      "start": "19:50",
+      "end": "21:20",
+      "code": "DWC",
+      "teacher": "TSI"
+    },
+    {
+      "day": 3,
+      "start": "16:30",
+      "end": "17:15",
+      "code": "ING",
+      "teacher": "AMC"
+    },
+    {
+      "day": 3,
+      "start": "17:15",
+      "end": "18:00",
+      "code": "DAW",
+      "teacher": "AAG"
+    },
+    {
+      "day": 3,
+      "start": "18:00",
+      "end": "18:45",
+      "code": "DWC",
+      "teacher": "TSI"
+    },
+    {
+      "day": 3,
+      "start": "19:05",
+      "end": "19:50",
+      "code": "DWC",
+      "teacher": "TSI"
+    },
+    {
+      "day": 3,
+      "start": "19:50",
+      "end": "21:20",
+      "code": "DWS",
+      "teacher": "AAG"
+    },
+    {
+      "day": 4,
+      "start": "16:30",
+      "end": "17:15",
+      "code": "IPE",
+      "teacher": "MPM"
+    },
+    {
+      "day": 4,
+      "start": "17:15",
+      "end": "18:45",
+      "code": "DWS",
+      "teacher": "AAG"
+    },
+    {
+      "day": 4,
+      "start": "19:05",
+      "end": "19:50",
+      "code": "ING",
+      "teacher": "AMC"
+    },
+    {
+      "day": 4,
+      "start": "19:50",
+      "end": "21:20",
+      "code": "DIW",
+      "teacher": "VPT"
+    }
+  ],
+  "subjects": {
+    "DIW": {
+      "name": "Diseño de Interfaces Web",
+      "color": "#A65A5A"
+    },
+    "DWC": {
+      "name": "Desarrollo Web Entorno Cliente",
+      "color": "#C9A800"
+    },
+    "DWS": {
+      "name": "Desarrollo Web Entorno Servidor",
+      "color": "#2F7FC9"
+    },
+    "DAW": {
+      "name": "Despliegue de Aplicaciones Web",
+      "color": "#D9677A"
+    },
+    "PRO": {
+      "name": "Proyecto Intermodular II",
+      "color": "#3FA65A"
+    },
+    "IPE": {
+      "name": "Itinerario Empleabilidad II",
+      "color": "#B04FC9"
+    },
+    "SOS": {
+      "name": "Sostenibilidad Sector Productivo",
+      "color": "#5C5CB8"
+    },
+    "DIG": {
+      "name": "Digitalización Sector Productivo",
+      "color": "#E07A2E"
+    },
+    "ING": {
+      "name": "Inglés Oral (Optativa)",
+      "color": "#1FA3A8"
+    }
+  },
+  "teachers": {
+    "VPT": "Vicente Payá",
+    "TSI": "Txema Sirvent",
+    "AAG": "Arturo Albero",
+    "RRL": "Rafael Reus",
+    "MPM": "María Poveda",
+    "LVLL": "Liberto Vera",
+    "AMC": "Alba Mora",
+    "VFA": "Victoria Fraile"
+  },
+  "periods": [
+    {
+      "label": "Septiembre",
+      "from": "2026-09-01",
+      "to": "2026-09-30",
+      "sessionMinutes": 45,
+      "classes": [
+        {
+          "day": 0,
+          "start": "16:30",
+          "end": "18:00",
+          "code": "DIW",
+          "teacher": "VPT"
+        },
+        {
+          "day": 0,
+          "start": "18:00",
+          "end": "18:45",
+          "code": "DWC",
+          "teacher": "TSI"
+        },
+        {
+          "day": 0,
+          "start": "19:05",
+          "end": "19:50",
+          "code": "DWC",
+          "teacher": "TSI"
+        },
+        {
+          "day": 0,
+          "start": "19:50",
+          "end": "21:20",
+          "code": "PRO",
+          "teacher": "RRL"
+        },
+        {
+          "day": 1,
+          "start": "16:30",
+          "end": "18:00",
+          "code": "IPE",
+          "teacher": "MPM"
+        },
+        {
+          "day": 1,
+          "start": "18:00",
+          "end": "18:45",
+          "code": "DAW",
+          "teacher": "AAG"
+        },
+        {
+          "day": 1,
+          "start": "19:05",
+          "end": "19:50",
+          "code": "DAW",
+          "teacher": "AAG"
+        },
+        {
+          "day": 1,
+          "start": "19:50",
+          "end": "20:35",
+          "code": "SOS",
+          "teacher": "LVLL"
+        },
+        {
+          "day": 1,
+          "start": "20:35",
+          "end": "21:20",
+          "code": "ING",
+          "teacher": "AMC"
+        },
+        {
+          "day": 2,
+          "start": "16:30",
+          "end": "17:15",
+          "code": "PRO",
+          "teacher": "RRL"
+        },
+        {
+          "day": 2,
+          "start": "17:15",
+          "end": "18:00",
+          "code": "DIG",
+          "teacher": "VFA"
+        },
+        {
+          "day": 2,
+          "start": "18:00",
+          "end": "18:45",
+          "code": "DWS",
+          "teacher": "AAG"
+        },
+        {
+          "day": 2,
+          "start": "19:05",
+          "end": "19:50",
+          "code": "DWS",
+          "teacher": "AAG"
+        },
+        {
+          "day": 2,
+          "start": "19:50",
+          "end": "21:20",
+          "code": "DWC",
+          "teacher": "TSI"
+        },
+        {
+          "day": 3,
+          "start": "16:30",
+          "end": "17:15",
+          "code": "ING",
+          "teacher": "AMC"
+        },
+        {
+          "day": 3,
+          "start": "17:15",
+          "end": "18:00",
+          "code": "DAW",
+          "teacher": "AAG"
+        },
+        {
+          "day": 3,
+          "start": "18:00",
+          "end": "18:45",
+          "code": "DWC",
+          "teacher": "TSI"
+        },
+        {
+          "day": 3,
+          "start": "19:05",
+          "end": "19:50",
+          "code": "DWC",
+          "teacher": "TSI"
+        },
+        {
+          "day": 3,
+          "start": "19:50",
+          "end": "21:20",
+          "code": "DWS",
+          "teacher": "AAG"
+        },
+        {
+          "day": 4,
+          "start": "16:30",
+          "end": "17:15",
+          "code": "IPE",
+          "teacher": "MPM"
+        },
+        {
+          "day": 4,
+          "start": "17:15",
+          "end": "18:45",
+          "code": "DWS",
+          "teacher": "AAG"
+        },
+        {
+          "day": 4,
+          "start": "19:05",
+          "end": "19:50",
+          "code": "ING",
+          "teacher": "AMC"
+        },
+        {
+          "day": 4,
+          "start": "19:50",
+          "end": "21:20",
+          "code": "DIW",
+          "teacher": "VPT"
+        }
+      ]
+    },
+    {
+      "label": "Octubre-mayo",
+      "from": "2026-10-01",
+      "to": "2027-05-31",
+      "sessionMinutes": 55,
+      "classes": [
+        {
+          "day": 0,
+          "start": "15:30",
+          "end": "17:20",
+          "code": "DIW",
+          "teacher": "VPT"
+        },
+        {
+          "day": 0,
+          "start": "17:20",
+          "end": "18:15",
+          "code": "DWC",
+          "teacher": "TSI"
+        },
+        {
+          "day": 0,
+          "start": "18:35",
+          "end": "19:30",
+          "code": "DWC",
+          "teacher": "TSI"
+        },
+        {
+          "day": 0,
+          "start": "19:30",
+          "end": "21:20",
+          "code": "PRO",
+          "teacher": "RRL"
+        },
+        {
+          "day": 1,
+          "start": "15:30",
+          "end": "17:20",
+          "code": "IPE",
+          "teacher": "MPM"
+        },
+        {
+          "day": 1,
+          "start": "17:20",
+          "end": "18:15",
+          "code": "DAW",
+          "teacher": "AAG"
+        },
+        {
+          "day": 1,
+          "start": "18:35",
+          "end": "19:30",
+          "code": "DAW",
+          "teacher": "AAG"
+        },
+        {
+          "day": 1,
+          "start": "19:30",
+          "end": "20:25",
+          "code": "SOS",
+          "teacher": "LVLL"
+        },
+        {
+          "day": 1,
+          "start": "20:25",
+          "end": "21:20",
+          "code": "ING",
+          "teacher": "AMC"
+        },
+        {
+          "day": 2,
+          "start": "15:30",
+          "end": "16:25",
+          "code": "PRO",
+          "teacher": "RRL"
+        },
+        {
+          "day": 2,
+          "start": "16:25",
+          "end": "17:20",
+          "code": "DIG",
+          "teacher": "VFA"
+        },
+        {
+          "day": 2,
+          "start": "17:20",
+          "end": "18:15",
+          "code": "DWS",
+          "teacher": "AAG"
+        },
+        {
+          "day": 2,
+          "start": "18:35",
+          "end": "19:30",
+          "code": "DWS",
+          "teacher": "AAG"
+        },
+        {
+          "day": 2,
+          "start": "19:30",
+          "end": "21:20",
+          "code": "DWC",
+          "teacher": "TSI"
+        },
+        {
+          "day": 3,
+          "start": "15:30",
+          "end": "16:25",
+          "code": "ING",
+          "teacher": "AMC"
+        },
+        {
+          "day": 3,
+          "start": "16:25",
+          "end": "17:20",
+          "code": "DAW",
+          "teacher": "AAG"
+        },
+        {
+          "day": 3,
+          "start": "17:20",
+          "end": "18:15",
+          "code": "DWC",
+          "teacher": "TSI"
+        },
+        {
+          "day": 3,
+          "start": "18:35",
+          "end": "19:30",
+          "code": "DWC",
+          "teacher": "TSI"
+        },
+        {
+          "day": 3,
+          "start": "19:30",
+          "end": "21:20",
+          "code": "DWS",
+          "teacher": "AAG"
+        },
+        {
+          "day": 4,
+          "start": "14:35",
+          "end": "15:30",
+          "code": "IPE",
+          "teacher": "MPM"
+        },
+        {
+          "day": 4,
+          "start": "15:30",
+          "end": "17:20",
+          "code": "DWS",
+          "teacher": "AAG"
+        },
+        {
+          "day": 4,
+          "start": "17:40",
+          "end": "18:35",
+          "code": "ING",
+          "teacher": "AMC"
+        },
+        {
+          "day": 4,
+          "start": "18:35",
+          "end": "20:25",
+          "code": "DIW",
+          "teacher": "VPT"
+        }
+      ]
+    },
+    {
+      "label": "Junio",
+      "from": "2027-06-01",
+      "to": "2027-06-30",
+      "sessionMinutes": 45,
+      "classes": [
+        {
+          "day": 0,
+          "start": "16:30",
+          "end": "18:00",
+          "code": "DIW",
+          "teacher": "VPT"
+        },
+        {
+          "day": 0,
+          "start": "18:00",
+          "end": "18:45",
+          "code": "DWC",
+          "teacher": "TSI"
+        },
+        {
+          "day": 0,
+          "start": "19:05",
+          "end": "19:50",
+          "code": "DWC",
+          "teacher": "TSI"
+        },
+        {
+          "day": 0,
+          "start": "19:50",
+          "end": "21:20",
+          "code": "PRO",
+          "teacher": "RRL"
+        },
+        {
+          "day": 1,
+          "start": "16:30",
+          "end": "18:00",
+          "code": "IPE",
+          "teacher": "MPM"
+        },
+        {
+          "day": 1,
+          "start": "18:00",
+          "end": "18:45",
+          "code": "DAW",
+          "teacher": "AAG"
+        },
+        {
+          "day": 1,
+          "start": "19:05",
+          "end": "19:50",
+          "code": "DAW",
+          "teacher": "AAG"
+        },
+        {
+          "day": 1,
+          "start": "19:50",
+          "end": "20:35",
+          "code": "SOS",
+          "teacher": "LVLL"
+        },
+        {
+          "day": 1,
+          "start": "20:35",
+          "end": "21:20",
+          "code": "ING",
+          "teacher": "AMC"
+        },
+        {
+          "day": 2,
+          "start": "16:30",
+          "end": "17:15",
+          "code": "PRO",
+          "teacher": "RRL"
+        },
+        {
+          "day": 2,
+          "start": "17:15",
+          "end": "18:00",
+          "code": "DIG",
+          "teacher": "VFA"
+        },
+        {
+          "day": 2,
+          "start": "18:00",
+          "end": "18:45",
+          "code": "DWS",
+          "teacher": "AAG"
+        },
+        {
+          "day": 2,
+          "start": "19:05",
+          "end": "19:50",
+          "code": "DWS",
+          "teacher": "AAG"
+        },
+        {
+          "day": 2,
+          "start": "19:50",
+          "end": "21:20",
+          "code": "DWC",
+          "teacher": "TSI"
+        },
+        {
+          "day": 3,
+          "start": "16:30",
+          "end": "17:15",
+          "code": "ING",
+          "teacher": "AMC"
+        },
+        {
+          "day": 3,
+          "start": "17:15",
+          "end": "18:00",
+          "code": "DAW",
+          "teacher": "AAG"
+        },
+        {
+          "day": 3,
+          "start": "18:00",
+          "end": "18:45",
+          "code": "DWC",
+          "teacher": "TSI"
+        },
+        {
+          "day": 3,
+          "start": "19:05",
+          "end": "19:50",
+          "code": "DWC",
+          "teacher": "TSI"
+        },
+        {
+          "day": 3,
+          "start": "19:50",
+          "end": "21:20",
+          "code": "DWS",
+          "teacher": "AAG"
+        },
+        {
+          "day": 4,
+          "start": "16:30",
+          "end": "17:15",
+          "code": "IPE",
+          "teacher": "MPM"
+        },
+        {
+          "day": 4,
+          "start": "17:15",
+          "end": "18:45",
+          "code": "DWS",
+          "teacher": "AAG"
+        },
+        {
+          "day": 4,
+          "start": "19:05",
+          "end": "19:50",
+          "code": "ING",
+          "teacher": "AMC"
+        },
+        {
+          "day": 4,
+          "start": "19:50",
+          "end": "21:20",
+          "code": "DIW",
+          "teacher": "VPT"
+        }
+      ]
+    }
+  ],
+  "_nota": "`classes` es el horario por defecto (sep/jun). `periods` define el horario vigente por fechas; los consumidores deben elegir el periodo que contiene la fecha y usar `classes` como respaldo. Las horas oficiales se cuentan en sesiones (45 min en sep/jun, 55 min en oct-may)."
+}

@@ -1,0 +1,8 @@
+[
+  { "id": "aules-501", "courseId": 241050, "code": "DWS", "title": "MEMORY DELIVERY of UNIT 1",
+    "due": "2026-09-27T23:59:00+02:00", "url": "https://aules.edu.gva.es/fp/mod/assign/view.php?id=1", "submitted": false, "graded": false },
+  { "id": "aules-502", "courseId": 240613, "code": "PRO", "title": "Propuestas de proyecto",
+    "due": "2026-09-30T23:59:00+02:00", "url": "https://aules.edu.gva.es/fp/mod/assign/view.php?id=2", "submitted": true, "graded": false },
+  { "id": "aules-503", "courseId": 241050, "code": "DWS", "title": "Sin fecha",
+    "due": null, "url": "https://aules.edu.gva.es/fp/mod/assign/view.php?id=3", "submitted": false, "graded": false }
+]

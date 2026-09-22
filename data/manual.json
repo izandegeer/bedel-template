@@ -1,0 +1,279 @@
+{
+  "events": [
+    {
+      "date": "2026-09-30",
+      "type": "examen",
+      "text": "Tema 1",
+      "code": "DIG"
+    },
+    {
+      "date": "2026-10-09",
+      "type": "festivo",
+      "text": "9 d'Octubre"
+    },
+    {
+      "date": "2026-10-12",
+      "type": "festivo",
+      "text": "Fiesta Nacional"
+    },
+    {
+      "date": "2026-10-14",
+      "type": "examen",
+      "text": "Tema 2",
+      "code": "DIG"
+    },
+    {
+      "date": "2026-10-28",
+      "type": "examen",
+      "text": "Tema 3",
+      "code": "DIG"
+    },
+    {
+      "date": "2026-11-11",
+      "type": "examen",
+      "text": "Tema 4",
+      "code": "DIG"
+    },
+    {
+      "date": "2026-11-25",
+      "type": "examen",
+      "text": "Tema 5",
+      "code": "DIG"
+    },
+    {
+      "date": "2026-12-01",
+      "type": "info",
+      "text": "1ª evaluación"
+    },
+    {
+      "date": "2026-12-08",
+      "type": "festivo",
+      "text": "Inmaculada"
+    },
+    {
+      "date": "2026-12-16",
+      "type": "examen",
+      "text": "Tema 6",
+      "code": "DIG"
+    },
+    {
+      "date": "2026-12-21",
+      "type": "festivo",
+      "text": "Festivo Consejo Escolar"
+    },
+    {
+      "date": "2026-12-22",
+      "type": "festivo",
+      "text": "Vacaciones de Navidad"
+    },
+    {
+      "date": "2026-12-23",
+      "type": "festivo",
+      "text": "Vacaciones de Navidad"
+    },
+    {
+      "date": "2026-12-24",
+      "type": "festivo",
+      "text": "Vacaciones de Navidad"
+    },
+    {
+      "date": "2026-12-25",
+      "type": "festivo",
+      "text": "Vacaciones de Navidad"
+    },
+    {
+      "date": "2026-12-28",
+      "type": "festivo",
+      "text": "Vacaciones de Navidad"
+    },
+    {
+      "date": "2026-12-29",
+      "type": "festivo",
+      "text": "Vacaciones de Navidad"
+    },
+    {
+      "date": "2026-12-30",
+      "type": "festivo",
+      "text": "Vacaciones de Navidad"
+    },
+    {
+      "date": "2026-12-31",
+      "type": "festivo",
+      "text": "Vacaciones de Navidad"
+    },
+    {
+      "date": "2027-01-01",
+      "type": "festivo",
+      "text": "Vacaciones de Navidad"
+    },
+    {
+      "date": "2027-01-04",
+      "type": "festivo",
+      "text": "Vacaciones de Navidad"
+    },
+    {
+      "date": "2027-01-05",
+      "type": "festivo",
+      "text": "Vacaciones de Navidad"
+    },
+    {
+      "date": "2027-01-06",
+      "type": "festivo",
+      "text": "Vacaciones de Navidad"
+    },
+    {
+      "date": "2027-01-20",
+      "type": "examen",
+      "text": "Tema 7",
+      "code": "DIG"
+    },
+    {
+      "date": "2027-02-26",
+      "type": "festivo",
+      "text": "Día no lectivo municipal (pendiente de resolución)"
+    },
+    {
+      "date": "2027-03-01",
+      "type": "festivo",
+      "text": "Festivo local"
+    },
+    {
+      "date": "2027-03-08",
+      "type": "info",
+      "text": "Inicio Formación en Empresa (FE)"
+    },
+    {
+      "date": "2027-03-09",
+      "type": "info",
+      "text": "2ª evaluación"
+    },
+    {
+      "date": "2027-03-19",
+      "type": "festivo",
+      "text": "San José"
+    },
+    {
+      "date": "2027-03-25",
+      "type": "festivo",
+      "text": "Vacaciones de Pascua"
+    },
+    {
+      "date": "2027-03-26",
+      "type": "festivo",
+      "text": "Vacaciones de Pascua"
+    },
+    {
+      "date": "2027-03-29",
+      "type": "festivo",
+      "text": "Vacaciones de Pascua"
+    },
+    {
+      "date": "2027-03-30",
+      "type": "festivo",
+      "text": "Vacaciones de Pascua"
+    },
+    {
+      "date": "2027-03-31",
+      "type": "festivo",
+      "text": "Vacaciones de Pascua"
+    },
+    {
+      "date": "2027-04-01",
+      "type": "festivo",
+      "text": "Vacaciones de Pascua"
+    },
+    {
+      "date": "2027-04-02",
+      "type": "festivo",
+      "text": "Vacaciones de Pascua"
+    },
+    {
+      "date": "2027-04-05",
+      "type": "festivo",
+      "text": "Vacaciones de Pascua"
+    },
+    {
+      "date": "2027-05-31",
+      "type": "info",
+      "text": "Fin Formación en Empresa"
+    },
+    {
+      "date": "2027-06-01",
+      "type": "info",
+      "text": "Evaluación final"
+    },
+    {
+      "date": "2027-06-21",
+      "type": "info",
+      "text": "Evaluación extraordinaria"
+    }
+  ],
+  "deadlines": [
+    {
+      "id": "man-dwc-dom-1",
+      "code": "DWC",
+      "title": "Actividades Tema01 (1-6) y DOM (1-6)",
+      "due": "2026-09-24T23:00",
+      "url": "https://aules.edu.gva.es/fp/mod/assign/view.php?id=11449225"
+    },
+    {
+      "id": "man-dig-proy-1",
+      "code": "DIG",
+      "title": "Entrega proyecto tema 1",
+      "due": "2026-09-29T23:59",
+      "url": null
+    },
+    {
+      "id": "man-dig-proy-2",
+      "code": "DIG",
+      "title": "Entrega proyecto tema 2",
+      "due": "2026-10-13T23:59",
+      "url": null
+    },
+    {
+      "id": "man-dig-proy-3",
+      "code": "DIG",
+      "title": "Entrega proyecto tema 3",
+      "due": "2026-10-27T23:59",
+      "url": null
+    },
+    {
+      "id": "man-dig-proy-4",
+      "code": "DIG",
+      "title": "Entrega proyecto tema 4",
+      "due": "2026-11-10T23:59",
+      "url": null
+    },
+    {
+      "id": "man-dig-proy-5",
+      "code": "DIG",
+      "title": "Entrega proyecto tema 5",
+      "due": "2026-11-24T23:59",
+      "url": null
+    },
+    {
+      "id": "man-dig-proy-6",
+      "code": "DIG",
+      "title": "Entrega proyecto tema 6",
+      "due": "2026-12-15T23:59",
+      "url": null
+    },
+    {
+      "id": "man-dig-proy-7",
+      "code": "DIG",
+      "title": "Entrega proyecto tema 7",
+      "due": "2027-01-19T23:59",
+      "url": null
+    },
+    {
+      "id": "man-dig-present",
+      "code": "DIG",
+      "title": "Presentación proyecto (mi grupo)",
+      "due": "2027-02-24T17:15",
+      "url": null
+    }
+  ],
+  "notes": [],
+  "done": [],
+  "absences": []
+}
