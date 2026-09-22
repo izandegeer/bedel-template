@@ -4,39 +4,85 @@ Hub de logística del curso para 2º DAW tarde del IES Mutxamel: el horario, las
 
 Los datos viven en tu repo y en tu cuenta de Cloudflare. Nadie más los ve.
 
-## Requisitos
+## Dos formas de montarlo
 
-- Node 22 o superior
-- git
-- Una cuenta gratuita de Cloudflare
-- Tu usuario y contraseña de Aules
-- Mac o Windows
+Elige la que te vaya mejor. Las dos acaban en el mismo sitio: tu web con tus datos.
 
-## Ponerlo en marcha
+- **Con tu IA** (Claude Code, Codex, Copilot CLI, Gemini CLI o similar): le pegas un mensaje y lo hace ella. Cinco minutos.
+- **A mano, paso a paso**: para hacerlo tú sin saber nada de terminal. Quince minutos.
 
-1. Pulsa **"Use this template"** arriba en GitHub y crea tu repo como **privado**. No hagas fork: un fork sería público y tus faltas también.
-2. Clónalo en tu ordenador y entra en la carpeta:
-   ```bash
-   git clone <la URL de tu repo> bedel
-   cd bedel
+## Opción A: que lo monte tu IA
+
+Necesitas tener instalado un asistente de IA que pueda usar tu terminal (Claude Code, Codex CLI, GitHub Copilot CLI o Gemini CLI) y una cuenta de GitHub.
+
+1. Pulsa **"Use this template"** arriba en esta página, elige **Private** y ponle de nombre `bedel`. No hagas fork: sería público.
+2. Abre tu asistente de IA en cualquier carpeta y pégale este mensaje, cambiando `TU_USUARIO` por tu usuario de GitHub:
+
+   ```text
+   Clona https://github.com/TU_USUARIO/bedel en una carpeta llamada bedel y móntalo siguiendo su README.md y su AGENTS.md. Es una plantilla que ya conoce mi horario. Comprueba que tengo Node 22 o superior y git, y si me falta algo, instálalo o dime cómo. Ejecuta `npm install` dentro de web/ y luego `npm run setup` desde la raíz. El instalador es interactivo y me va a pedir mi usuario y contraseña de Aules, una contraseña para la web y el login de Cloudflare: avísame cuando llegue cada pregunta para que la responda yo. Al acabar, dime las dos URLs de mi web y guárdalas en el README de mi repo.
    ```
-3. Instala las dependencias de la web:
-   ```bash
-   cd web && npm install && cd ..
-   ```
-4. Ejecuta el instalador:
-   ```bash
-   npm run setup
-   ```
-   Te va a preguntar, por este orden:
-   - El nombre que quieres para tu proyecto de Cloudflare.
-   - Tu usuario y contraseña de Aules. **No se guardan**: se usan una vez para pedirle a Aules un token de acceso, y solo el token queda en `.env` (que no se sube al repo).
-   - El login de Cloudflare, si no tenías sesión: se abre el navegador y autorizas wrangler.
-   - La contraseña con la que quieres entrar en tu web, dos veces.
-   - Si quieres programar la sincronización cada 2 horas.
 
-   Después crea el proyecto, guarda los secretos, construye la web y la despliega.
-5. Abre la URL que imprime al final e introduce la contraseña de la web.
+3. Responde a las preguntas cuando el asistente te avise. Tu contraseña de Aules solo se usa una vez para obtener un token; no se guarda.
+4. Abre la URL que te dé y entra con la contraseña de la web.
+
+A partir de ahí, pídele las cosas en lenguaje natural: "apunta una falta de DWS de hoy", "añade el examen de DIW del 14 de octubre", "¿qué entregas tengo esta semana?". El fichero `AGENTS.md` le explica todo lo que necesita.
+
+## Opción B: montarlo a mano, paso a paso
+
+Sin miedo: son cinco pasos y en cada uno solo hay que copiar y pegar.
+
+### 0. Lo que necesitas antes
+
+- **Node**: descárgalo de https://nodejs.org (la versión LTS) e instálalo con todo por defecto. Para comprobarlo, abre una terminal y escribe `node -v`: debe salir `v22` o más.
+- **git**: en Mac ya viene (si no, la terminal te ofrece instalarlo la primera vez). En Windows, https://git-scm.com/download/win con todo por defecto.
+- **Una cuenta de Cloudflare**: gratis en https://dash.cloudflare.com/sign-up. Solo el correo y una contraseña, no pide tarjeta.
+- **Tu usuario y contraseña de Aules**.
+- **Una terminal**: en Mac, la app Terminal. En Windows, PowerShell (búscalo en el menú Inicio).
+
+### 1. Crea tu copia del repo
+
+Arriba en esta página, pulsa el botón verde **"Use this template"** y luego **"Create a new repository"**. Ponle de nombre `bedel`, marca **Private** y pulsa **Create repository**. No hagas fork: un fork sería público y tus faltas también.
+
+### 2. Descárgalo a tu ordenador
+
+En la página de tu repo nuevo pulsa el botón verde **"Code"** y copia la URL que aparece. En la terminal, escribe esto cambiando la URL por la tuya:
+
+```bash
+git clone https://github.com/TU_USUARIO/bedel.git bedel
+cd bedel
+```
+
+Si te pide usuario y contraseña de GitHub, la contraseña es un token: te lo explica GitHub en https://docs.github.com/es/authentication. Con la app GitHub Desktop te lo ahorras.
+
+### 3. Instala las piezas de la web
+
+```bash
+cd web
+npm install
+cd ..
+```
+
+Tarda un minuto y saca muchas líneas. Es normal.
+
+### 4. Ejecuta el instalador
+
+```bash
+npm run setup
+```
+
+Te va a preguntar, por este orden:
+
+1. **Nombre del proyecto en Cloudflare**: pulsa Enter para dejar `bedel`.
+2. **Tu usuario y contraseña de Aules**. La contraseña no se ve mientras la escribes, es normal. **No se guarda**: se usa una vez para pedirle a Aules un token, y solo el token queda en un fichero `.env` que nunca se sube al repo.
+3. **Login de Cloudflare**: se abre el navegador, entras con tu cuenta y pulsas "Allow". Vuelve a la terminal.
+4. **Contraseña para tu web**, dos veces. Es la que usarás para entrar desde el móvil. Elige una que recuerdes.
+5. **¿Programar la sincronización cada 2 horas?**: di que sí. Así la web se actualiza sola con lo que salga en Aules.
+
+Después construye la web y la publica. Al final imprime dos direcciones.
+
+### 5. Abre tu web
+
+Abre en el navegador la URL que acaba en `workers.dev`, pon la contraseña de la web y listo. Guárdala en el móvil como favorito o en la pantalla de inicio.
 
 ### Por qué hay dos URLs
 
@@ -66,10 +112,6 @@ npm run evento -- - "Día no lectivo" 2027-02-26 --tipo festivo
 Los dos comandos escriben el cambio, lo suben al repo y publican la web. Con `--sin-deploy` solo lo escriben.
 
 Otros comandos: `npm run sync -- --solo-deploy` (solo reconstruye y publica), `npm run deploy`, `npm run schedule -- --estado`, `npm test`.
-
-### Con una IA
-
-Si usas Claude Code, Codex, Copilot o Gemini CLI, no hace falta que te aprendas los comandos: abre el repo con el asistente y pídeselo en lenguaje natural ("apunta una falta de DWS del martes pasado", "añade el examen de DIW del 14 de octubre", "actualiza mi horario"). En la raíz hay un `AGENTS.md` que le explica qué es cada fichero, qué comandos existen y qué no debe tocar, así que sabe hacerlo sin que le expliques nada.
 
 ## Datos
 

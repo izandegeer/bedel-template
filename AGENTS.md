@@ -6,6 +6,16 @@ Bedel es el hub de logística del curso de 2º DAW tarde del IES Mutxamel: horar
 
 Node 22 o superior, git, sesión de wrangler en una cuenta de Cloudflare y un token de Aules en `.env` (`AULES_TOKEN=...`). Sin dependencias npm en la raíz: la web tiene las suyas en `web/`.
 
+## Montar Bedel desde cero (primera vez)
+
+Si el usuario te pide montarlo a partir de su copia de la plantilla:
+
+1. Comprueba `node -v` (22 o superior) y `git --version`. Si falta algo, ayúdale a instalarlo antes de seguir.
+2. Clona su repo y entra en la carpeta. Ejecuta `npm install` dentro de `web/`.
+3. Ejecuta `npm run setup` desde la raíz. **Es interactivo**: pide el nombre del proyecto de Cloudflare, usuario y contraseña de Aules, hace login en Cloudflare abriendo el navegador, pide la contraseña de la web dos veces y pregunta si programar el sync. Nunca inventes ni pidas al usuario que te escriba sus contraseñas en el chat: si tu entorno no puede ejecutar comandos interactivos, dile que ejecute él `npm run setup` en su terminal y espera a que te diga que ha terminado. Si ya ha ejecutado el instalador antes, es seguro repetirlo: detecta lo que ya está hecho.
+4. Al acabar, el instalador imprime dos URLs (`*.pages.dev` y `*.workers.dev`). Díselas y explícale que en el instituto solo funciona la de `workers.dev`. Si te pide guardarlas, escríbelas al principio de su `README.md` y haz commit.
+5. Si el instalador dice que Aules devolvió menos cursos de los mapeados, ejecuta `npm run discover`, compara con `data/config.json` y corrige el mapeo id a código con ayuda del usuario. Luego repite `npm run setup`.
+
 ## Mapa de `data/`
 
 | Fichero | Qué es | Quién lo edita |
