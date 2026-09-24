@@ -275,5 +275,62 @@
   ],
   "notes": [],
   "done": [],
-  "absences": []
+  "absences": [],
+  "log": [
+    {
+      "date": "2026-09-17",
+      "code": "DWC",
+      "text": "actividades 1-20 del DOM (clase)"
+    },
+    {
+      "date": "2026-09-17",
+      "code": "DWS",
+      "text": "primer proyecto Spring Boot (demo y springIntroduction)"
+    },
+    {
+      "date": "2026-09-18",
+      "code": "DWS",
+      "text": "proyecto chopinWeb"
+    },
+    {
+      "date": "2026-09-19",
+      "code": "DIW",
+      "text": "actividad 1 IES El Triciclo, HTML"
+    },
+    {
+      "date": "2026-09-21",
+      "code": "DWC",
+      "text": "ejercicios de la sesión 1"
+    },
+    {
+      "date": "2026-09-21",
+      "code": "DIW",
+      "text": "actividad 1 IES El Triciclo, CSS"
+    },
+    {
+      "date": "2026-09-22",
+      "code": "IPE",
+      "text": "material del reto U1: portafolio y DAFO"
+    },
+    {
+      "date": "2026-09-23",
+      "code": "DWC",
+      "text": "pruebas de la sesión 2"
+    },
+    {
+      "date": "2026-09-23",
+      "code": "DWS",
+      "text": "pruebaSpring con HelloController y HelloRestController"
+    },
+    {
+      "date": "2026-09-23",
+      "code": "DIG",
+      "text": "material de U1 y U2 y transcripción del vídeo Del vapor a la IA"
+    },
+    {
+      "date": "2026-09-24",
+      "code": "DWC",
+      "text": "entrega ActividadDOM: actividades 1-6, memoria y zip"
+    }
+  ]
 }

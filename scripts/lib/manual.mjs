@@ -1,4 +1,4 @@
-// Librería de data/manual.json: faltas y eventos añadidos a mano.
+// Librería de data/manual.json: faltas, eventos y diario de trabajo añadidos a mano.
 // Las funciones de cálculo son puras: reciben y devuelven objetos, no tocan el disco.
 import { readFileSync, writeFileSync } from 'node:fs';
 import { resolve } from 'node:path';
@@ -92,6 +92,51 @@ export function addEvent(manual, { date, type, text, code } = {}) {
   const entry = { date, type, text: texto, ...(code ? { code } : {}) };
   const events = [...(manual.events ?? []), entry].sort((a, b) => a.date.localeCompare(b.date));
   return { ...manual, events };
+}
+
+// Días enteros entre dos fechas ISO, sin depender de la zona horaria local
+function daysBetween(desde, hasta) {
+  const ms = Date.parse(`${hasta}T12:00:00Z`) - Date.parse(`${desde}T12:00:00Z`);
+  return Math.round(ms / 86400000);
+}
+
+// Añade una entrada al diario de trabajo y devuelve un manual nuevo. `today` se inyecta para no depender del reloj.
+export function addLog(manual, timetable, { code, date, text, today } = {}) {
+  const hoy = today ?? todayInMadrid();
+  const codigo = String(code ?? '').toUpperCase();
+  if (!timetable?.subjects?.[codigo]) {
+    throw new Error(`Código desconocido: ${code}. Códigos: ${Object.keys(timetable?.subjects ?? {}).join(', ')}.`);
+  }
+  const fecha = date ?? hoy;
+  assertDate(fecha);
+  if (fecha > hoy) throw new Error(`La fecha ${fecha} es futura; el diario registra lo ya hecho.`);
+  const texto = String(text ?? '').trim();
+  if (!texto) throw new Error('Falta el texto de lo que has hecho.');
+  const entry = { date: fecha, code: codigo, text: texto };
+  const log = [...(manual.log ?? []), entry].sort((a, b) => a.date.localeCompare(b.date));
+  return { ...manual, log };
+}
+
+// Resumen del diario: lo hecho en los últimos `days` días por asignatura y los días
+// desde la última entrada de cada asignatura del curso (null si nunca se ha tocado).
+export function weekSummary(manual, timetable, { today, days = 7 } = {}) {
+  const hoy = today ?? todayInMadrid();
+  assertDate(hoy);
+  const desde = new Date(Date.parse(`${hoy}T12:00:00Z`) - (days - 1) * 86400000)
+    .toISOString()
+    .slice(0, 10);
+  const log = [...(manual.log ?? [])].sort((a, b) => a.date.localeCompare(b.date));
+  const byCode = {};
+  const sinceByCode = {};
+  for (const code of Object.keys(timetable?.subjects ?? {})) sinceByCode[code] = null;
+  for (const entry of log) {
+    if (!(entry.code in sinceByCode)) continue;
+    if (entry.date >= desde && entry.date <= hoy) {
+      (byCode[entry.code] ??= []).push({ date: entry.date, text: entry.text });
+    }
+    if (entry.date <= hoy) sinceByCode[entry.code] = daysBetween(entry.date, hoy);
+  }
+  return { byCode, sinceByCode };
 }
 
 export function readTimetable(root = ROOT) {

@@ -10,6 +10,7 @@
     "deploy": "node scripts/deploy-web.mjs",
     "falta": "node scripts/falta.mjs",
     "evento": "node scripts/evento.mjs",
+    "hecho": "node scripts/hecho.mjs",
     "sync": "node scripts/sync.mjs",
     "schedule": "node scripts/schedule.mjs",
     "sync:aules": "node scripts/sync-aules/sync.js",

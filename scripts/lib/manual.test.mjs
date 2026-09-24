@@ -1,4 +1,4 @@
-// Tests de la librería de manual.json: sesiones, faltas y eventos.
+// Tests de la librería de manual.json: sesiones, faltas, eventos y diario de trabajo.
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { mkdtempSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
@@ -8,10 +8,12 @@ import {
   EVENT_TYPES,
   addAbsence,
   addEvent,
+  addLog,
   readManual,
   readTimetable,
   removeAbsence,
   sessionsOn,
+  weekSummary,
   writeManual,
 } from './manual.mjs';
 
@@ -163,4 +165,99 @@ test('writeManual escribe con dos espacios y salto de línea final', () => {
   assert.ok(raw.endsWith('}\n'), 'debe terminar en salto de línea');
   assert.match(raw, /\n {2}"absences"/);
   assert.deepEqual(JSON.parse(raw).absences, [{ date: '2026-09-15', code: 'SOS', sessions: 1 }]);
+});
+
+// --- diario de trabajo (log) ---
+
+test('addLog añade la entrada ordenada por fecha', () => {
+  const manual = { log: [{ date: '2026-09-22', code: 'DWS', text: 'tema 3' }] };
+  const out = addLog(manual, tt, { code: 'DWC', date: '2026-09-21', text: 'DOM', today: '2026-09-24' });
+  assert.deepEqual(out.log, [
+    { date: '2026-09-21', code: 'DWC', text: 'DOM' },
+    { date: '2026-09-22', code: 'DWS', text: 'tema 3' },
+  ]);
+});
+
+test('addLog crea la lista log si no existe y usa today por defecto', () => {
+  const out = addLog({ events: [] }, tt, { code: 'DWC', text: 'actividades 1-6 del DOM', today: '2026-09-24' });
+  assert.deepEqual(out.log, [{ date: '2026-09-24', code: 'DWC', text: 'actividades 1-6 del DOM' }]);
+  assert.deepEqual(out.events, []);
+});
+
+test('addLog no muta el manual de entrada', () => {
+  const manual = { log: [] };
+  addLog(manual, tt, { code: 'DWC', text: 'DOM', today: '2026-09-24' });
+  assert.deepEqual(manual.log, []);
+});
+
+test('addLog rechaza un código que no está en subjects', () => {
+  assert.throws(
+    () => addLog({}, tt, { code: 'XXX', text: 'algo', today: '2026-09-24' }),
+    /Código desconocido: XXX/,
+  );
+});
+
+test('addLog rechaza fecha futura y formato inválido', () => {
+  assert.throws(
+    () => addLog({}, tt, { code: 'DWC', date: '2026-09-25', text: 'algo', today: '2026-09-24' }),
+    /es futura/,
+  );
+  assert.throws(
+    () => addLog({}, tt, { code: 'DWC', date: '24/09/2026', text: 'algo', today: '2026-09-24' }),
+    /Fecha no válida/,
+  );
+});
+
+test('addLog rechaza texto vacío y recorta espacios', () => {
+  assert.throws(
+    () => addLog({}, tt, { code: 'DWC', text: '   ', today: '2026-09-24' }),
+    /texto/i,
+  );
+  const out = addLog({}, tt, { code: 'DWC', text: '  DOM  ', today: '2026-09-24' });
+  assert.equal(out.log[0].text, 'DOM');
+});
+
+test('weekSummary agrupa lo de la ventana y deja fuera lo anterior', () => {
+  const manual = {
+    log: [
+      { date: '2026-09-10', code: 'DWC', text: 'viejo' },
+      { date: '2026-09-21', code: 'DWC', text: 'DOM' },
+      { date: '2026-09-24', code: 'DWC', text: 'eventos' },
+      { date: '2026-09-23', code: 'DWS', text: 'PHP' },
+    ],
+  };
+  const { byCode } = weekSummary(manual, tt, { today: '2026-09-24' });
+  assert.deepEqual(byCode.DWC, [
+    { date: '2026-09-21', text: 'DOM' },
+    { date: '2026-09-24', text: 'eventos' },
+  ]);
+  assert.deepEqual(byCode.DWS, [{ date: '2026-09-23', text: 'PHP' }]);
+  assert.equal(byCode.DIW, undefined, 'DIW no tiene entradas en la ventana');
+});
+
+test('weekSummary cuenta los días desde la última entrada de cada asignatura', () => {
+  const manual = {
+    log: [
+      { date: '2026-09-10', code: 'DAW', text: 'viejo' },
+      { date: '2026-09-21', code: 'DWC', text: 'DOM' },
+      { date: '2026-09-24', code: 'DWS', text: 'PHP' },
+    ],
+  };
+  const { sinceByCode } = weekSummary(manual, tt, { today: '2026-09-24' });
+  assert.equal(sinceByCode.DWS, 0);
+  assert.equal(sinceByCode.DWC, 3);
+  assert.equal(sinceByCode.DAW, 14, 'cuenta también fuera de la ventana');
+  assert.equal(sinceByCode.DIW, null, 'nunca tocada');
+  assert.deepEqual(Object.keys(sinceByCode).sort(), Object.keys(tt.subjects).sort());
+});
+
+test('weekSummary acepta una ventana distinta y un manual sin log', () => {
+  const manual = { log: [{ date: '2026-09-14', code: 'DWC', text: 'DOM' }] };
+  assert.deepEqual(weekSummary(manual, tt, { today: '2026-09-24' }).byCode, {});
+  assert.deepEqual(weekSummary(manual, tt, { today: '2026-09-24', days: 30 }).byCode, {
+    DWC: [{ date: '2026-09-14', text: 'DOM' }],
+  });
+  const vacio = weekSummary({}, tt, { today: '2026-09-24' });
+  assert.deepEqual(vacio.byCode, {});
+  assert.equal(vacio.sinceByCode.DWC, null);
 });

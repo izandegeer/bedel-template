@@ -21,7 +21,7 @@ Si el usuario te pide montarlo a partir de su copia de la plantilla:
 | Fichero | Qué es | Quién lo edita |
 |---|---|---|
 | `timetable.json` | Aula, clases por día (`day` 0 = lunes), `subjects` (nombre y color), `teachers`, `periods` (septiembre y junio 45 min, octubre a mayo 55 min) | a mano |
-| `manual.json` | Lo que no viene de Aules: `events`, `deadlines`, `notes`, `done`, `absences` | a mano o con `npm run falta` / `npm run evento` |
+| `manual.json` | Lo que no viene de Aules: `events`, `deadlines`, `notes`, `done`, `absences`, `log` | a mano o con `npm run falta` / `npm run evento` / `npm run hecho` |
 | `config.json` | `baseUrl` de Aules y `courses`: id de curso de Aules a código de asignatura | a mano, con ayuda de `npm run discover` |
 | `modules.json` | Horas oficiales y `weekly` por módulo, `limitPercent` 15 | a mano |
 | `calendar.json` | Curso lectivo (`lective`), `holidays` con rangos inclusive, `pendingLective` | a mano |
@@ -67,6 +67,10 @@ npm run falta -- DWS --sin-deploy                     # escribe manual.json y no
 npm run evento -- DIG "Examen Tema 2" 2026-10-14                  # --tipo examen por defecto
 npm run evento -- DWS "Entrega del proyecto" 2026-11-20 --tipo entrega
 npm run evento -- - "Día no lectivo" 2027-02-26 --tipo festivo    # "-" = sin asignatura
+
+npm run hecho -- DWC "actividades 1-6 del DOM"        # diario: lo hecho hoy de esa asignatura
+npm run hecho -- DWS "instalar Laravel" 2026-09-22    # con fecha, nunca futura
+npm run hecho                                         # resumen de la semana y días sin tocar cada asignatura
 ```
 
 Tipos de evento válidos: `examen`, `festivo`, `entrega`, `info`, `otro`. Con código el tipo por defecto es `examen`; sin código, `otro`. Las sesiones de una falta se deducen del horario del día y del periodo vigente; `--sesiones N` es obligatorio si ese día no hay clase de esa asignatura.
@@ -74,6 +78,7 @@ Tipos de evento válidos: `examen`, `festivo`, `entrega`, `info`, `otro`. Con c�
 ## Reglas
 
 - No edites `data/aules/`: el siguiente sync lo sobrescribe. Lo que sea manual va a `manual.json`.
+- Registra en el diario (`npm run hecho`) SOLO cuando el usuario lo pida explícitamente; nunca a partir de lo que cuente en la conversación.
 - Si editas `manual.json` a mano, publica el cambio con `npm run sync -- --solo-deploy`.
 - Nunca commitees `.env`. `bedel.config.json` es de la máquina: en el repo plantilla está ignorado.
 - No toques `web/wrangler.worker.toml` salvo que el usuario lo pida: `run_worker_first` y el nombre del fichero son deliberados.
@@ -83,7 +88,7 @@ Tipos de evento válidos: `examen`, `festivo`, `entrega`, `info`, `otro`. Con c�
 ## Estructura del código
 
 - `scripts/sync-aules/` sincronizador con la API de Moodle de Aules (`sync.js`, `lib/`, `test/`).
-- `scripts/lib/` lógica testeable: `config.mjs` (`bedel.config.json`), `manual.mjs` (faltas y eventos), `deploy.mjs` (build, Pages, Workers, commit), `sync-cycle.mjs`, `schedule.mjs`, `setup-steps.mjs`, `run.mjs`, `prompt.mjs`.
+- `scripts/lib/` lógica testeable: `config.mjs` (`bedel.config.json`), `manual.mjs` (faltas, eventos y diario), `deploy.mjs` (build, Pages, Workers, commit), `sync-cycle.mjs`, `schedule.mjs`, `setup-steps.mjs`, `run.mjs`, `prompt.mjs`.
 - `scripts/*.mjs` son las entradas de los comandos npm: parsean argumentos y llaman a `lib/`.
 - Web Vue 3 + Vite en `web/`, vistas en `web/src/views/`: `Hoy.vue` (resumen del día y avisos), `Horario.vue` (horario y descarga .ics), `Entregas.vue` (tareas de Aules y plazos manuales), `Material.vue` (recursos de Aules y enlaces), `Avisos.vue` (anuncios con "visto" en localStorage), `Faltas.vue` (porcentajes y margen por módulo).
 - Protección por contraseña: `web/functions/` (Pages Functions: `_middleware.js`, `login.js`, `lib/auth.js`) y `web/worker.js` (Worker con static assets), que comparten `lib/auth.js`. Secretos `SITE_PASSWORD` y `SITE_TOKEN` en los dos destinos.

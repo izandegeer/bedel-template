@@ -5,6 +5,7 @@ import { store, manualEventsOn, subject, markResSeen } from '../store.js';
 import { agendaAt, blocksOn } from '../lib/agenda.js';
 import { pending } from '../lib/deadlines.js';
 import { formatTime, formatDay, daysUntil, parseDate, madridParts } from '../lib/dates.js';
+import { weekSummary, label } from '../lib/worklog.js';
 import EdgeTag from '../components/EdgeTag.vue';
 import DeadlineItem from '../components/DeadlineItem.vue';
 import { Alert, AlertDescription } from '@/components/ui/alert';
@@ -73,6 +74,13 @@ const recent = computed(() => {
   }
   return items.sort((a, b) => b.when.localeCompare(a.when)).slice(0, 10);
 });
+/** Diario de trabajo: lo hecho en los últimos 7 días y días sin tocar cada asignatura. */
+const week = computed(() => weekSummary(store.manual?.log ?? [], store.timetable?.subjects ?? {}, { today: todayKey.value }));
+/** Grupos con entradas de la semana, en el mismo orden que la lista de asignaturas. */
+const weekGroups = computed(() => week.value.since
+  .filter((s) => week.value.byCode[s.code])
+  .map((s) => ({ code: s.code, name: s.name, items: week.value.byCode[s.code] })));
+const ddmm = (date) => `${date.slice(8, 10)}/${date.slice(5, 7)}`;
 const countdown = (n) => (n === 0 ? 'hoy' : n === 1 ? 'mañana' : `${n} d`);
 const percent = (n) => new Intl.NumberFormat('es-ES', { minimumFractionDigits: 1, maximumFractionDigits: 1 }).format(n);
 </script>
@@ -150,6 +158,30 @@ const percent = (n) => new Intl.NumberFormat('es-ES', { minimumFractionDigits: 1
       </div>
       <DeadlineItem v-for="d in soon" :key="d.id" :d="d" edge class="mb-0 rounded-md bg-muted/40 ring-0 shadow-none" />
       <p v-if="!soon.length" class="text-sm text-muted-foreground">Nada que entregar en 7 días.</p>
+    </Card>
+
+    <Card class="gap-2 px-4 py-4 md:col-span-2">
+      <h2 class="text-base font-semibold">Esta semana</h2>
+      <div class="grid gap-1.5 sm:grid-cols-2">
+        <div v-for="s in week.since" :key="s.code" class="flex items-center gap-2 overflow-hidden rounded-md bg-muted/40 pr-3 text-sm">
+          <EdgeTag :code="s.code" />
+          <span class="min-w-0 flex-1 truncate py-2.5">{{ s.name }}</span>
+          <span class="shrink-0 text-xs tabular-nums" :class="s.days === null || s.days >= 7 ? 'text-amber-600' : 'text-muted-foreground'">{{ label(s.days) }}</span>
+        </div>
+      </div>
+      <div v-if="weekGroups.length" class="mt-1 grid gap-2">
+        <div v-for="g in weekGroups" :key="g.code">
+          <div class="mb-1 flex items-baseline gap-2">
+            <span class="text-xs font-semibold">{{ g.code }}</span>
+            <span class="truncate text-xs text-muted-foreground">{{ g.name }}</span>
+          </div>
+          <div v-for="(it, i) in g.items" :key="g.code + i" class="flex items-start gap-2 px-1 text-sm">
+            <span class="shrink-0 tabular-nums text-muted-foreground">{{ ddmm(it.date) }}</span>
+            <span class="min-w-0 flex-1">{{ it.text }}</span>
+          </div>
+        </div>
+      </div>
+      <p v-else class="text-sm text-muted-foreground">Sin registros esta semana. Apunta lo que hagas con npm run hecho.</p>
     </Card>
 
     <Card class="gap-2 px-4 py-4">
